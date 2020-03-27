@@ -1,0 +1,62 @@
+<div class="container col-sm-5">
+
+    <form class="m-5" action="">
+        <div class="">
+
+            <div>
+                <h1 class="font-weight-bold text-center m-5">Cadastro de Cliente</h1>
+            </div>
+            
+            <div class="form-group">
+                <label class="font-weight-bold" for="cliente">Nome:</label>
+                <input class="form-control" type="text" name="nome" value="" [(ngModel)]="servico.cliente.nome">
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold" for="telefone">Telefone:</label>
+                <input class="form-control" type="tel" name="telefone" value="" [(ngModel)]="servico.cliente.telefone">
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold" for="email">Email:</label>
+                <input class="form-control" type="email" name="email" value="" [(ngModel)]="servico.cliente.email">
+            </div>
+            <div class="">
+
+                <button class="btn btn-primary btn-lg btn-block" type="button" (click)="adicionar()">Adcionar</button>
+
+            </div> 
+        </div>
+    </form>
+    
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Email</th>
+                <th scope="col">Excluir</th>
+                <th scope="col">Alterar</th>
+            </tr>
+            
+        </thead>
+            <tbody>
+                <tr *ngFor="let cliente of servico.listaClientes; let i = index">
+                    <th scope="col">{{i}}</th>
+                    <td>{{cliente.nome}}</td>
+                    <td>{{cliente.telefone}}</td>
+                    <td>{{cliente.email}}</td>
+                    <td>
+                        <button class="btn btn-danger" type="button" name="button" (click)="excluir(i)">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-success" type="button" name="button" (click)="alterar(i)">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>           
+    </table>    
+    
+</div>
